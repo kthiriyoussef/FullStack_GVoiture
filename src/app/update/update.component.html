@@ -1,0 +1,57 @@
+<div class="modal-content">
+    <form (ngSubmit)="updateVoiture()">
+    <div class="modal-header">
+      <h4 class="modal-title">Edit Voiture</h4>
+    </div>
+    <div class="modal-body" >
+       
+      <span>Modele Voiture</span>
+      <input   class="form-control"  type="text" name="Modele" [(ngModel)]="voitureToUpdate.modele">
+      <span>Prix Voiture</span>
+      <input   class="form-control" type="text"  name="prix" [(ngModel)]="voitureToUpdate.prix">
+      <span>Coleur Voiture</span>
+      <input   class="form-control" type="text"  name="coleur" [(ngModel)]="voitureToUpdate.coleur">
+      <span>Date creation</span>
+      <input   class="form-control" type="date"  name="relaseDate" [(ngModel)]="voitureToUpdate.relaseDate">
+      <label>Marque</label>
+      <select class="form-control " id="idMar" name="idMar"
+      [(ngModel)]="voitureToUpdate.idMarque">
+       <option *ngFor="let mar of marques" [value]="mar.idMarque" >
+       {{mar.nomMarque}}
+      </option>
+      </select>
+      <div class="col-sm-16 col-md-16 col-lg-16">
+        <label class="mb-2">Image :</label>
+        <input type="file" (change)="onImageUpload($event)" class="form-control">
+        </div>
+        <div class="card shadow mb-4">
+          
+          <div class="card-body">
+            <div class="mt-2">
+              <button type="submit" (click)="onAddImageProduit()" class="btn
+              btn-success">Ajouter Image</button>
+              </div>
+          <table class="table table-striped">
+          <thead>
+          <tr> <th>Images</th> </tr>
+          </thead>
+          <tbody *ngFor="let img of voitureToUpdate.images">
+          <tr>
+          <td><img class="card-img-top img-responsive"
+          src = "{{'data:' + img.type + ';base64,' + img.image}}"
+          style = "height :50px;width:100px"></td>
+          <td style="width:20%" ><a class="btn btn-danger"
+            (click)="supprimerImage(img)">Supprimer</a></td>
+          </tr>
+          </tbody>
+          </table>
+          </div>
+          </div>
+    </div>
+      
+    
+    <button type="submit" value="Update" class="btn btn-primary w-100" >Edit</button>
+    
+   
+  </form>
+</div>
