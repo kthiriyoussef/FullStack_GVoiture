@@ -4,7 +4,7 @@ import { Image } from './image';
 import { marque } from './Marque';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+
 import { HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service'; const httpOptions = {headers: new HttpHeaders( {'Content-Type': 'application/json'} ),
 
@@ -13,6 +13,7 @@ import { AuthService } from './auth.service'; const httpOptions = {headers: new 
   providedIn: 'root'
 })
 export class VoitureService {
+  hostUrl='http://localhost:8080';
   constructor(private http: HttpClient,private authService:AuthService,) { }
   getVoiture(): Observable<voiture[]>{
     
