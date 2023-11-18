@@ -13,7 +13,6 @@ import { AuthService } from './auth.service'; const httpOptions = {headers: new 
   providedIn: 'root'
 })
 export class VoitureService {
-  hostUrl='http://localhost:8080';
   constructor(private http: HttpClient,private authService:AuthService,) { }
   getVoiture(): Observable<voiture[]>{
     
